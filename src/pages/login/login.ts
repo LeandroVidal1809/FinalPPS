@@ -21,8 +21,14 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  //Metodo para enviar la solicitud de ingreso a Firebase
-  async login()
+ /**
+ * @apiDefine login
+ * @apiParam {string} Usuario/Email para ingresar.
+ * @apiParam {string} Clave que Corresponda al usuario/Email ingresado.
+ * @apiSuccess {String} Nombre del usuario.
+ * @apiSuccess {String} Tipo de usuario.
+ */
+  async login(username:string,password:string)
   {
           
         await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
