@@ -1,117 +1,131 @@
 var express = require('express');  
 var app = express();
 
-// Serving static files from "public" folder
 app.use(express.static('public'));
+
+
+//Crear Encuestas=======================================================
 /**
- * @api {get} /tasks List all tasks
- * @apiGroup Tasks
- * @apiSuccess {Object[]} tasks Task's list
- * @apiSuccess {Number} tasks.id Task id
- * @apiSuccess {String} tasks.title Task title
- * @apiSuccess {Boolean} tasks.done Task is done?
- * @apiSuccess {Date} tasks.updated_at Update's date
- * @apiSuccess {Date} tasks.created_at Register's date
- * @apiSuccessExample {json} Success
- *    HTTP/1.1 200 OK
- *    [{
- *      "id": 1,
- *      "title": "Study",
- *      "done": false
- *      "updated_at": "2016-02-10T15:46:51.778Z",
- *      "created_at": "2016-02-10T15:46:51.778Z"
- *    }]
- * @apiErrorExample {json} List error
- *    HTTP/1.1 500 Internal Server Error
- */
-app.get('/tasks', function(req, res) {  
-    // business logic for list all tasks...
-});
-/**
- * @api {get} /tasks/:id Find a task
- * @apiGroup Tasks
- * @apiParam {id} id Task id
- * @apiSuccess {Number} id Task id
- * @apiSuccess {String} title Task title
- * @apiSuccess {Boolean} done Task is done?
- * @apiSuccess {Date} updated_at Update's date
- * @apiSuccess {Date} created_at Register's date
- * @apiSuccessExample {json} Success
- *    HTTP/1.1 200 OK
+ * @api {post} /Alta/ Alta Encuesta
+ * @apiGroup Encuestas
+ * @apiDescription Generar encuesta. 
+ * @apiParam {String} Pregunta   Pregunta de la encuesta   
+ * @apiParam {String} TipoRespuesta   Tipo de la respuesta (Menu de Seleccion - Botones Opcion)   
+ * @apiParam {String} Respuesta1   Primer respuesta a la pregunta
+ * @apiParam {String} Respuesta2   Segunda respuesta a la pregunta   
+ * @apiParam {String} Respuesta3   Segunda respuesta a la pregunta
+ * @apiParam {Date} Duración   Duración en Minutos de la encuesta     
+ * @apiPermission Profesor
+ *  * @apiParamExample {json} Input
  *    {
- *      "id": 1,
- *      "title": "Study",
- *      "done": false
- *      "updated_at": "2016-02-10T15:46:51.778Z",
- *      "created_at": "2016-02-10T15:46:51.778Z"
+ *      "Pregunta": "Parcial Oral o Escrito?",
+ *      "TipoRespuesta": "Menu Seleccion",
+ *      "Respuesta1": "Oral",
+ *      "Respuesta2": "Escrito",
+ *      "Respuesta3": "Me es indistinto",
+ *      "Duracion": "00:30"
  *    }
- * @apiErrorExample {json} Task not found
- *    HTTP/1.1 404 Not Found
- * @apiErrorExample {json} Find error
- *    HTTP/1.1 500 Internal Server Error
- */
-app.get('/tasks/:id', function(req, res) {  
-    // business logic for find a task...
-});
-/**
- * @api {post} /tasks Register a new task
- * @apiGroup Tasks
- * @apiParam {String} title Task title
- * @apiParamExample {json} Input
- *    {
- *      "title": "Study"
- *    }
- * @apiSuccess {Number} id Task id
- * @apiSuccess {String} title Task title
- * @apiSuccess {Boolean} done=false Task is done?
- * @apiSuccess {Date} updated_at Update date
- * @apiSuccess {Date} created_at Register date
+ * 
+ * @apiSuccess {String} Mensaje Mensaje de finalización de proceso
  * @apiSuccessExample {json} Success
  *    HTTP/1.1 200 OK
  *    {
- *      "id": 1,
- *      "title": "Study",
- *      "done": false,
- *      "updated_at": "2016-02-10T15:46:51.778Z",
- *      "created_at": "2016-02-10T15:46:51.778Z"
+ *      "Mensaje": "Proceso de grabación finalizado"
+ *      
  *    }
  * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
  */
-app.post('/tasks', function(req, res) {  
-    // business logic for create a task...
+app.post('/AltaEncuesta', function(req, res) {  
+    // business logic for create a Login...
 });
+
 /**
- * @api {put} /tasks/:id Update a task
- * @apiGroup Tasks
- * @apiParam {id} id Task id
- * @apiParam {String} title Task title
- * @apiParam {Boolean} done Task is done?
- * @apiParamExample {json} Input
+ * @api {put} /Modificar/ Modificar encuesta
+ * @apiGroup Encuestas
+ * @apiDescription Modificar encuesta. 
+ * @apiParam {String} Pregunta   Pregunta de la encuesta   
+ * @apiParam {String} TipoRespuesta   Tipo de la respuesta (Menu de Seleccion - Botones Opcion)   
+ * @apiParam {String} Respuesta1   Primer respuesta a la pregunta
+ * @apiParam {String} Respuesta2   Segunda respuesta a la pregunta   
+ * @apiParam {String} Respuesta3   Segunda respuesta a la pregunta
+ * @apiParam {Date} Duración  Duración en Minutos de la encuesta     
+ * @apiPermission Profesor
+ *  * @apiParamExample {json} Input
  *    {
- *      "title": "Work",
- *      "done": true
+ *      "Pregunta": "Parcial Oral o Escrito?",
+ *      "TipoRespuesta": "Menu Seleccion",
+ *      "Respuesta1": "Oral",
+ *      "Respuesta2": "Escrito",
+ *      "Respuesta3": "Me es indistinto"
+ *      "Duracion": "00:45"
  *    }
+ * 
+ * @apiSuccess {String} Mensaje Mensaje de finalización de proceso
  * @apiSuccessExample {json} Success
- *    HTTP/1.1 204 No Content
- * @apiErrorExample {json} Update error
+ *    HTTP/1.1 200 OK
+ *    {
+*       "Mensaje": "Proceso de modificación finalizado"
+ *    }
+ * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
  */
-app.put('/tasks/:id', function(req, res) {  
-    // business logic for update a task...
+app.put('/ModificaEncuesta', function(req, res) {  
+    // business logic for create a Login...
 });
+
 /**
- * @api {delete} /tasks/:id Remove a task
- * @apiGroup Tasks
- * @apiParam {id} id Task id
+ * @api {Delete} /Eliminar/  Eliminar encuesta
+ * @apiGroup Encuestas
+ * @apiDescription Eliminar encuesta. 
+ * @apiParam {integer} Id   Id de la pregunta a eliminar
+ * @apiPermission Profesor
+ *  * @apiParamExample {json} Input
+ *    {
+ *      "Id": 22
+ *    }
+ * 
+ * @apiSuccess {String} Mensaje Mensaje de finalización de proceso
  * @apiSuccessExample {json} Success
- *    HTTP/1.1 204 No Content
- * @apiErrorExample {json} Delete error
+ *    HTTP/1.1 200 OK
+ *    {
+ *      "Mensaje": "Proceso de Eliminación finalizado"
+ *    }
+ * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
  */
-app.delete('/tasks/:id', function(req, res) {  
-    // business logic for delete a task...
+app.delete('/EliminaEncuesta', function(req, res) {  
+    // business logic for create a Login...
 });
+
+
+
+/**
+ * @api {get} /Traer/ Traer Encuesta
+ * @apiSampleRequest http://api.github.com/some_path/
+ * @apiGroup Encuestas
+ * @apiDescription Traer encuesta vigente.
+ * @apiPermission Profesor
+ * @apiSuccess {Object} Encuests
+ * @apiSuccessExample {json} Success
+ *    HTTP/1.1 200 OK
+ *    {
+    *      "Id": "Proceso de Eliminación finalizado"
+    *      "Pregunta": "Parcial Oral o Escrito?",
+    *      "TipoRespuesta": "Menu Seleccion",
+    *      "Respuesta1": "Oral",
+    *      "Respuesta2": "Escrito",
+    *      "Respuesta3": "Me es indistinto"
+    *      "Duracion": "00:15"
+ *    }
+ * @apiErrorExample {json} Register error
+ *    HTTP/1.1 500 Internal Server Error
+ */
+app.get('/TraeEncuesta', function(req, res) {  
+    // business logic for create a Login...
+ });
+
+
 app.listen(3000, function() {  
-    console.log('Task api up and running...');
+    console.log('Login api up and running...');
 });

@@ -28,275 +28,52 @@
     "name": ""
   },
   {
-    "type": "delete",
-    "url": "/tasks/:id",
-    "title": "Remove a task",
-    "group": "Tasks",
+    "type": "Delete",
+    "url": "/Eliminar/",
+    "title": "Eliminar encuesta",
+    "group": "Encuestas",
+    "description": "<p>Eliminar encuesta.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "id",
+            "type": "integer",
             "optional": false,
-            "field": "id",
-            "description": "<p>Task id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 204 No Content",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Delete error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./index.js",
-    "groupTitle": "Tasks",
-    "name": "DeleteTasksId"
-  },
-  {
-    "type": "get",
-    "url": "/tasks",
-    "title": "List all tasks",
-    "group": "Tasks",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "tasks",
-            "description": "<p>Task's list</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "tasks.id",
-            "description": "<p>Task id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "tasks.title",
-            "description": "<p>Task title</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "tasks.done",
-            "description": "<p>Task is done?</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "tasks.updated_at",
-            "description": "<p>Update's date</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "tasks.created_at",
-            "description": "<p>Register's date</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"title\": \"Study\",\n  \"done\": false\n  \"updated_at\": \"2016-02-10T15:46:51.778Z\",\n  \"created_at\": \"2016-02-10T15:46:51.778Z\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./index.js",
-    "groupTitle": "Tasks",
-    "name": "GetTasks"
-  },
-  {
-    "type": "get",
-    "url": "/tasks/:id",
-    "title": "Find a task",
-    "group": "Tasks",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "id",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Task id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Task id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>Task title</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "done",
-            "description": "<p>Task is done?</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "updated_at",
-            "description": "<p>Update's date</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "created_at",
-            "description": "<p>Register's date</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": 1,\n  \"title\": \"Study\",\n  \"done\": false\n  \"updated_at\": \"2016-02-10T15:46:51.778Z\",\n  \"created_at\": \"2016-02-10T15:46:51.778Z\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Task not found",
-          "content": "HTTP/1.1 404 Not Found",
-          "type": "json"
-        },
-        {
-          "title": "Find error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./index.js",
-    "groupTitle": "Tasks",
-    "name": "GetTasksId"
-  },
-  {
-    "type": "post",
-    "url": "/tasks",
-    "title": "Register a new task",
-    "group": "Tasks",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>Task title</p>"
+            "field": "Id",
+            "description": "<p>Id de la pregunta a eliminar</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Input",
-          "content": "{\n  \"title\": \"Study\"\n}",
+          "content": "{\n  \"Id\": 22\n}",
           "type": "json"
         }
       ]
     },
+    "permission": [
+      {
+        "name": "Profesor"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Task id</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "title",
-            "description": "<p>Task title</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "done",
-            "defaultValue": "false",
-            "description": "<p>Task is done?</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "updated_at",
-            "description": "<p>Update date</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "created_at",
-            "description": "<p>Register date</p>"
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": 1,\n  \"title\": \"Study\",\n  \"done\": false,\n  \"updated_at\": \"2016-02-10T15:46:51.778Z\",\n  \"created_at\": \"2016-02-10T15:46:51.778Z\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de Eliminación finalizado\"\n}",
           "type": "json"
         }
       ]
@@ -312,53 +89,41 @@
     },
     "version": "0.0.0",
     "filename": "./index.js",
-    "groupTitle": "Tasks",
-    "name": "PostTasks"
+    "groupTitle": "Encuestas",
+    "name": "DeleteEliminar"
   },
   {
-    "type": "put",
-    "url": "/tasks/:id",
-    "title": "Update a task",
-    "group": "Tasks",
-    "parameter": {
+    "type": "get",
+    "url": "/Traer/",
+    "title": "Traer Encuesta",
+    "sampleRequest": [
+      {
+        "url": "http://api.github.com/some_path/"
+      }
+    ],
+    "group": "Encuestas",
+    "description": "<p>Traer encuesta vigente.</p>",
+    "permission": [
+      {
+        "name": "Profesor"
+      }
+    ],
+    "success": {
       "fields": {
-        "Parameter": [
+        "Success 200": [
           {
-            "group": "Parameter",
-            "type": "id",
+            "group": "Success 200",
+            "type": "Object",
             "optional": false,
-            "field": "id",
-            "description": "<p>Task id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>Task title</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": false,
-            "field": "done",
-            "description": "<p>Task is done?</p>"
+            "field": "Encuests",
+            "description": ""
           }
         ]
       },
       "examples": [
         {
-          "title": "Input",
-          "content": "{\n  \"title\": \"Work\",\n  \"done\": true\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
           "title": "Success",
-          "content": "HTTP/1.1 204 No Content",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Id\": \"Proceso de Eliminación finalizado\"\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n  \"Duracion\": \"00:15\"\n}",
           "type": "json"
         }
       ]
@@ -366,7 +131,7 @@
     "error": {
       "examples": [
         {
-          "title": "Update error",
+          "title": "Register error",
           "content": "HTTP/1.1 500 Internal Server Error",
           "type": "json"
         }
@@ -374,7 +139,207 @@
     },
     "version": "0.0.0",
     "filename": "./index.js",
-    "groupTitle": "Tasks",
-    "name": "PutTasksId"
+    "groupTitle": "Encuestas",
+    "name": "GetTraer"
+  },
+  {
+    "type": "post",
+    "url": "/Alta/",
+    "title": "Alta Encuesta",
+    "group": "Encuestas",
+    "description": "<p>Generar encuesta.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Pregunta",
+            "description": "<p>Pregunta de la encuesta</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "TipoRespuesta",
+            "description": "<p>Tipo de la respuesta (Menu de Seleccion - Botones Opcion)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Respuesta1",
+            "description": "<p>Primer respuesta a la pregunta</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Respuesta2",
+            "description": "<p>Segunda respuesta a la pregunta</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Respuesta3",
+            "description": "<p>Segunda respuesta a la pregunta</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": false,
+            "field": "Duraci",
+            "description": "<p>ón   Duración en Minutos de la encuesta</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\",\n  \"Duracion\": \"00:30\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Profesor"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de grabación finalizado\"\n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Encuestas",
+    "name": "PostAlta"
+  },
+  {
+    "type": "put",
+    "url": "/Modificar/",
+    "title": "Modificar encuesta",
+    "group": "Encuestas",
+    "description": "<p>Modificar encuesta.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Pregunta",
+            "description": "<p>Pregunta de la encuesta</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "TipoRespuesta",
+            "description": "<p>Tipo de la respuesta (Menu de Seleccion - Botones Opcion)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Respuesta1",
+            "description": "<p>Primer respuesta a la pregunta</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Respuesta2",
+            "description": "<p>Segunda respuesta a la pregunta</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Respuesta3",
+            "description": "<p>Segunda respuesta a la pregunta</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": false,
+            "field": "Duraci",
+            "description": "<p>ón  Duración en Minutos de la encuesta</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n  \"Duracion\": \"00:45\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Profesor"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n   \"Mensaje\": \"Proceso de modificación finalizado\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Encuestas",
+    "name": "PutModificar"
   }
 ]

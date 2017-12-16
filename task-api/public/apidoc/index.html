@@ -16,7 +16,7 @@
 <script id="template-sidenav" type="text/x-handlebars-template">
 <nav id="scrollingNav">
   <div class="sidenav-search">
-    <input class="form-control search" type="text" placeholder="{{__ "Filter..."}}">
+    <input class="form-control search" type="text" placeholder="{{__ "Buscar..."}}">
     <span class="search-reset">x</span>
   </div>
   <ul class="sidenav nav nav-list list">
@@ -42,8 +42,12 @@
 <script id="template-project" type="text/x-handlebars-template">
   <div class="pull-left">
     <h1>{{name}}</h1>
-    {{#if description}}<h2>{{{nl2br description}}}</h2>{{/if}}
+    {{#if description}}<h2>Documentación con  ApiDoc - Final PPS. </h2> 
+      <h5>Esta documentación no hace referencia directa a una API, es un ejemplo para comparar con la herramienta APIDOC</h5>{{/if}}
+      <h5>Para ir a la documentación con ComposerDoc ingrese <a href="http://127.0.0.1:8080/info.html">aqui</a></h5>
+    </div>  
   </div>
+
   {{#if template.withCompare}}
   <div class="pull-right">
     <div class="btn-group">
@@ -174,6 +178,8 @@
     {{subTemplate "article-sample-request" article=article id=id}}
   </article>
 </script>
+
+<img src="img/logo.png"  alt="Random Name" style="width:10%;float:right">
 
 <script id="template-article-param-block" type="text/x-handlebars-template">
   {{#if params}}
