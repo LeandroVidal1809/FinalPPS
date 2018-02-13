@@ -2,14 +2,16 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Loading...</title>
+  <title>Cargando...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link href="vendor/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="vendor/prettify.css" rel="stylesheet" media="screen">
   <link href="css/style.css" rel="stylesheet" media="screen, print">
   <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+  <script src="/assets/scripts/invokecs.js"></script>
   <script src="vendor/polyfill.js"></script>
+  <script src="vendor/funcion.js"></script>
 </head>
 <body>
 
@@ -44,7 +46,7 @@
     <h1>{{name}}</h1>
     {{#if description}}<h2>Documentación con  ApiDoc - Final PPS. </h2> 
       <h5>Esta documentación no hace referencia directa a una API, es un ejemplo para comparar con la herramienta APIDOC</h5>{{/if}}
-      <h5>Para ir a la documentación con ComposerDoc ingrese <a href="http://127.0.0.1:8080/info.html">aqui</a></h5>
+      <h5>Para ir a la documentación con CompoDoc ingrese <a href="http://127.0.0.1:8080/info.html">aqui</a></h5>
     </div>  
   </div>
 
@@ -54,6 +56,7 @@
       <button id="version" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown">
         <strong>{{version}}</strong>&nbsp;<span class="caret"></span>
       </button>
+      
       <ul id="versions" class="dropdown-menu open-left">
         <li><a id="compareAllWithPredecessor" href="#">{{__ "Compare all with predecessor"}}</a></li>
         <li class="divider"></li>
@@ -131,18 +134,25 @@
         {{{markdown article.deprecated.content}}}
       </p>
     {{/if}}
-
+    
     {{#if article.description}}
       <p>{{{nl2br article.description}}}</p>
+      
     {{/if}}
     <span class="type type__{{toLowerCase article.type}}">{{toLowerCase article.type}}</span>
-    <pre class="prettyprint language-html" data-type="{{toLowerCase article.type}}"><code>{{article.url}}</code></pre>
 
+    {{#ifEquals article.type "Delete"}}
+    <h3> Parámetros de envio:</h3>
+    
+   <input type="text" placeholder="Ingrese el id a Eliminar">
+   <button type="button" class="btn btn-info btn-md" onclick="javascript:call();"> Enviar</button>
+  {{/ifEquals}}
+    <pre class="prettyprint language-html" data-type="{{toLowerCase article.type}}"><code>{{article.url}}</code></pre>
     {{#if article.permission}}
       <p>
         {{__ "Permission:"}}
         {{#each article.permission}}
-          {{name}}
+        {{name}}
           {{#if title}}
           <button type="button" class="btn btn-info btn-xs" data-title="{{title}}" data-content="{{nl2br description}}" data-html="true" data-toggle="popover" data-placement="right" data-trigger="hover">
               <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -216,8 +226,9 @@
           </tr>
         {{/each}}
         </tbody>
+
       </table>
-    {{/each}}
+     {{/each}}
     {{#if_gt params.examples.length compare=0}}
       <ul class="nav nav-tabs nav-tabs-examples">
       {{#each params.examples}}
@@ -232,10 +243,12 @@
         <div class="tab-pane{{#if_eq @index compare=0}} active{{/if_eq}}" id="{{../section}}-examples-{{../id}}-{{@index}}">
         <pre class="prettyprint language-{{type}}" data-type="{{type}}"><code>{{reformat content type}}</code></pre>
         </div>
-      {{/each}}
+      
+        {{/each}}
       </div>
-    {{/if_gt}}
+      {{/if_gt}}
   {{/if}}
+  
 </script>
 
 <script id="template-article-sample-request" type="text/x-handlebars-template">
