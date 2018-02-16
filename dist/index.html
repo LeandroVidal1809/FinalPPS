@@ -8,10 +8,12 @@
   <link href="vendor/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="vendor/prettify.css" rel="stylesheet" media="screen">
   <link href="css/style.css" rel="stylesheet" media="screen, print">
-  <link href="img/favicon.ico" rel="icon" type="image/x-icon">
-  <script src="/assets/scripts/invokecs.js"></script>
+  <link href="img/favicon.ico" rel="icon" type="image/x-icon">    
   <script src="vendor/polyfill.js"></script>
   <script src="vendor/funcion.js"></script>
+  <script type="text/typescript" src="script.ts"></script>
+  <script src="https://rawgit.com/Microsoft/TypeScript/master/lib/typescriptServices.js"></script>
+  <script src="https://rawgit.com/basarat/typescript-script/master/transpiler.js"></script>
 </head>
 <body>
 
@@ -144,8 +146,11 @@
     {{#ifEquals article.type "Delete"}}
     <h3> Parámetros de envio:</h3>
     
-   <input type="text" placeholder="Ingrese el id a Eliminar">
-   <button type="button" class="btn btn-info btn-md" onclick="javascript:call();"> Enviar</button>
+   <input type="text" name="valorcampo" id="valorcampo" placeholder="Ingrese el id a Eliminar">
+   <button type="button"  class="btn btn-info btn-md" onclick="M.f()"> Enviar</button><br>
+   <textarea name="valorcamporeturn" id="valorcamporeturn" rows="4" cols="50">
+    At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+    </textarea>   
   {{/ifEquals}}
     <pre class="prettyprint language-html" data-type="{{toLowerCase article.type}}"><code>{{article.url}}</code></pre>
     {{#if article.permission}}
@@ -686,3 +691,4 @@
 <script data-main="main.js" src="vendor/require.min.js"></script>
 </body>
 </html>
+<script>
