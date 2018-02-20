@@ -123,7 +123,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"Id\": \"Proceso de Eliminación finalizado\"\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n  \"Duracion\": \"00:15\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Id\": \"123\"\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n  \"Duracion\": \"00:15\"\n}",
           "type": "json"
         }
       ]
